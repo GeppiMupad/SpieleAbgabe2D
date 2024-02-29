@@ -77,13 +77,14 @@ public class DialogueInput : MonoBehaviour
     /// <returns></returns>
     public IEnumerator Dialogue(string dialogue)
     {
+        
         m_text.text = "";
         foreach (var letter in dialogue.ToCharArray())
         {
             m_text.text += letter;
             yield return new WaitForSeconds(2f / letterPerSeconds);
         }
-
+        BotDialogue.DialogueAudio.Stop();
         QuestionEvent?.Invoke();
     }
 }

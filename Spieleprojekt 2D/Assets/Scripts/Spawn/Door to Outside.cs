@@ -16,11 +16,12 @@ public class DoortoOutside : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Destroy(GameObject.FindWithTag("Player"));
+            GameObject tempgO = GameObject.FindWithTag("Player");
+            tempgO.SetActive(true);
             SetBotTrue?.Invoke();
             SceneManager.LoadScene("SampleScene");
             
-            SpawnOutside?.Invoke();
+           // SpawnOutside?.Invoke();
             
    
         }

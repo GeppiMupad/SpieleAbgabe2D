@@ -9,18 +9,33 @@ public class FollowPlayer : MonoBehaviour
     [SerializeField] private Transform player;
     private GameObject PlayergO;
 
+    private bool hasFound = false;
 
+    private void Start()
+    {
+        MainSpawn.CameraEvent += FindPlayer;
+        DoortoOutside.SetBotTrue += FindPlayer;
+    }
     void Update()
     {
-        Vector3 newPos = new Vector3(PlayergO.transform.position.x, PlayergO.transform.position.y, -10f);
-        transform.position = Vector3.Slerp(transform.position, newPos, speed * Time.deltaTime);
+        if(hasFound == true)
+        {
+            Vector3 newPos = new Vector3(PlayergO.transform.position.x, PlayergO.transform.position.y, -10f);
+            transform.position = Vector3.Slerp(transform.position, newPos, speed * Time.deltaTime);
+        }
+       
     }
 
-    private void FixedUpdate()
+    private void FindPlayer()
     {
         if (GameObject.FindWithTag("Player"))
         {
+            
             PlayergO = GameObject.FindWithTag("Player");
+            PlayergO.SetActive(true);
+            hasFound = true;
         }
     }
+
+ 
 }

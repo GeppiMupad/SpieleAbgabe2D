@@ -9,9 +9,11 @@ public class BotDialogue : MonoBehaviour
     [SerializeField] private GameObject DialogueCanvasgO; //if active, then Conversation has started
     [SerializeField] private GameObject QuestionCanvasgO; //if active, then Buttons ( questions ) are shown
 
-    [SerializeField] private GameObject EgO;
+    [SerializeField] private GameObject EgO;   // shows if Bot is in range to interact
     [SerializeField] private Rigidbody2D PlayerRB;
-    
+
+    [SerializeField] private AudioClip DialogueClip;
+    public static AudioSource DialogueAudio;
 
     public static bool exitButton = false; // if player press exit button, leave convo
 
@@ -31,6 +33,7 @@ public class BotDialogue : MonoBehaviour
     }
     private void Start()
     {
+        DialogueAudio = GetComponent<AudioSource>();
         DialogueInput.QuestionEvent += ManageQuestions;
 
         ButtonManager.Managecanvas += ManageQuestions;   
@@ -42,6 +45,7 @@ public class BotDialogue : MonoBehaviour
        
         if (Input.GetKeyDown(KeyCode.E) && canTalk == true)
         {
+            DialogueAudio.PlayOneShot(DialogueClip, 0.7f);
             showCanvasIndex = 1; 
 
             if(repeat == true)
@@ -52,7 +56,7 @@ public class BotDialogue : MonoBehaviour
 
             
             PlayerRB.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
-            Movement.isPlayerFrozen = true;
+            PlayerController.isPlayerFrozen = true;
             DialogueCanvasgO.SetActive(true);
             
             
@@ -64,7 +68,7 @@ public class BotDialogue : MonoBehaviour
 
             PlayerRB.constraints = RigidbodyConstraints2D.None;        
             PlayerRB.constraints = RigidbodyConstraints2D.FreezeRotation;
-            Movement.isPlayerFrozen = false;
+            PlayerController.isPlayerFrozen = false;
             DialogueCanvasgO.SetActive(false);
             QuestionCanvasgO.SetActive(false);         
         }
@@ -73,11 +77,15 @@ public class BotDialogue : MonoBehaviour
     private void ManageQuestions()
     {
         if (showCanvasIndex == 1)
-        {     
-            QuestionCanvasgO.SetActive(true);
-        }
-        if (DialogueInput.i == 1 || DialogueInput.i == 2 || DialogueInput.i == 3) // if a button got pressed
         {
+            
+            QuestionCanvasgO.SetActive(true);
+            
+        }
+        if (DialogueInput.i == 1 || DialogueInput.i == 2 || DialogueInput.i == 3) // if a button ( question ) got pressed
+        {
+            
+            DialogueAudio.PlayOneShot(DialogueClip, 0.7f);
             QuestionCanvasgO.SetActive(false);
         }
     }

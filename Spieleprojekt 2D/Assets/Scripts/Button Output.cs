@@ -14,33 +14,27 @@ public class ButtonManager : MonoBehaviour
         DialogueInput.i = 1;
        
         Managecanvas?.Invoke();
-     
     }
 
     public void ButtonTwo()
     {
         DialogueInput.i = 2;
       
-        Managecanvas?.Invoke();
-       
+        Managecanvas?.Invoke();    
     }
 
     public void ButtonThree()
     {
         DialogueInput.i = 3;
        
-        Managecanvas?.Invoke();
-       
+        Managecanvas?.Invoke();   
     }
 
 
     public void ButtonExit()
     {
        BotDialogue.exitButton = true;
-       // DialogueInput.repeat = true;
 
-
-        OnClickExit?.Invoke();
-       
+        OnClickExit?.Invoke();      
     }
 }

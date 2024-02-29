@@ -7,13 +7,15 @@ public class FindBot : MonoBehaviour
 
     void Start()
     {
-        Door.SetBotFalse += SetBotFalse;
+        Door.SetBotFalse += SetBotInvisible;
 
-        DoortoOutside.SetBotTrue += SetBotTrue;
+        DoortoOutside.SetBotTrue += SetBotVisible;
     }
 
-
-    private void SetBotFalse()
+    /// <summary>
+    /// Set Bot "Invisible"
+    /// </summary>
+    private void SetBotInvisible()
     {
         foreach (GameObject item in GameObject.FindGameObjectsWithTag("Bot"))
         {
@@ -21,7 +23,10 @@ public class FindBot : MonoBehaviour
         }
     }
 
-    private void SetBotTrue()
+    /// <summary>
+    /// Set Bot "Visible"
+    /// </summary>
+    private void SetBotVisible()
     {
         foreach (GameObject item in GameObject.FindGameObjectsWithTag("Bot"))
         {

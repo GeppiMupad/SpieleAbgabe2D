@@ -4,13 +4,15 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Windows;
+using static UnityEditor.Progress;
 
 public class Safe : MonoBehaviour
 {
+
+     // hätte buttons anders regeln können durch Parameter. Parameter kann man im Inspector anpassen = bräuchte nur eine Methode statt 9
     [SerializeField] private TextMeshProUGUI InputText;
 
-    private TextMeshProUGUI EmptyText = null;
-    private int inputIndex = 0;
+  //  private int inputIndex = 0;
 
     private string[] inputA = new string[]
      {
@@ -28,48 +30,38 @@ public class Safe : MonoBehaviour
 
        };
 
-    private List<int> solutionA = new List<int>();
+    private static List<int> solutionL = new List<int>();
 
-
+    
     private void PrintInput(int _input)
     {
-        if(inputIndex < 4)
-        {
             InputText.text += inputA[_input];
-            solutionA.Add(_input);
-
-        }
-       
+            solutionL.Add(_input);
     }
 
         
     public void Delete()
-    {
-        InputText.text = EmptyText.text;
+    {    
+        string temp = "";
+        InputText.text = temp;
+        solutionL.Clear();
     }
 
     public void Check()
     {
-
-        foreach (var item in solutionA)
-        {
-            Debug.Log(item);
-        }
-       /* if (solutionA[0] == 1 && solutionA[1] == 9 && solutionA[2] == 7 && solutionA[3] == 2 )
+ 
+        if (solutionL[0] == 1 && solutionL[1] == 9 && solutionL[2] == 7 && solutionL[3] == 2 )
         {
             Debug.Log("Safe ist auf");
         }
         else
         {
-            Debug.Log("Falscher Code");
-            InputText.text = EmptyText.text;
-        }*/
-
+            Debug.Log("Falscher Code");           
+        }
     }
     public void Zero()
     {
-        PrintInput(0);
-        
+        PrintInput(0);       
     }
     public void One()
     {
@@ -83,7 +75,7 @@ public class Safe : MonoBehaviour
 
     public void Three()
     {
-        PrintInput(3);;
+        PrintInput(3);
     }
     public void Four()
     {

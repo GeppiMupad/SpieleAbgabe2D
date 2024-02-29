@@ -2,7 +2,7 @@
     "name": "Input Actions",
     "maps": [
         {
-            "name": "Movement",
+            "name": "Player Controller",
             "id": "609321ce-958b-4c91-a527-9a9810113e36",
             "actions": [
                 {
@@ -13,6 +13,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Evidences",
+                    "type": "Button",
+                    "id": "64f6b18c-8b14-43a4-8744-238092301aa9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Investigation",
+                    "type": "Button",
+                    "id": "6a163b75-56da-4971-bb5d-d08cbf713c27",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -70,6 +88,28 @@
                     "action": "WASD",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "0bf74a2a-c36e-4251-97f6-046e40011306",
+                    "path": "<Keyboard>/b",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Evidences",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d9d91c30-113d-42c3-bc1e-570c777971bc",
+                    "path": "<Keyboard>/v",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Investigation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

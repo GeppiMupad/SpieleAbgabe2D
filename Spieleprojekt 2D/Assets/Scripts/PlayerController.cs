@@ -12,10 +12,10 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rB;
 
 
-    private GameObject InvestigationgO;
-    private int vIndex = 0;
-    private bool openInvestigation = true;
-    private static int findTagIndex = 0;
+    [SerializeField] private GameObject InvestigationgO; 
+    private int vIndex = 0;  // index for getkeydown V
+    private bool openInvestigation = true;   
+    
 
 
     #region Sprites
@@ -31,23 +31,15 @@ public class PlayerController : MonoBehaviour
     public static bool pickingUp = false;
     private void Awake()
     {
-        InvestigationgO = GameObject.FindWithTag("Test");
+      /*  InvestigationgO = GameObject.FindWithTag("Test");
         InvestigationgO.SetActive(false);
-        DontDestroyOnLoad(InvestigationgO);
+        DontDestroyOnLoad(InvestigationgO); */
     }
     private void Start()
     {
-       if(findTagIndex == 0)
-        {
-            findTagIndex = 1;
-            
-
-        }
-
-
+        InvestigationgO.SetActive(false);
+        
         rB = GetComponent<Rigidbody2D>();
-
-
     }
 
     private void Update()

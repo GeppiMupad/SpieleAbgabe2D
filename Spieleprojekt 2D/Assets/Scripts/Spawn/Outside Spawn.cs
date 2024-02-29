@@ -6,34 +6,35 @@ using UnityEngine;
 
 public class SpawnPlayerOutside : MonoBehaviour
 {
-    [SerializeField] private GameObject PlayerObject;
-    [SerializeField] private GameObject SpawnerObject;
+    [SerializeField] private GameObject PlayergO;
+    [SerializeField] private GameObject SpawnergO;
+    [SerializeField] private int spawnIndex;
 
-    private int index = 0;
-
-  // index wird ja mit scenenwechsel wieder auf 0 zurückgesetzet
-
-    private void Awake()
-    {
-
-    }
+    private static int index = 0; // index specified to each spawn, if index = 1 , then spawn 1 spawns the player 
 
     void Start()
     {
        
         Debug.Log("Start wurde ausgeführt " + index);
-        if (MainSpawn.firstSpawn == false )
+        if (MainSpawn.firstSpawn == false && index == spawnIndex )
         {
-            Instantiate(PlayerObject, transform.position, Quaternion.identity);
+            Instantiate(PlayergO, transform.position, Quaternion.identity);
         }
     }
-    //DoortoOutside.SpawnOutside += SpawnPlayer; // das Event zerstört warum auch immer das Object
+    //DoortoOutside.SpawnOutside += SpawnPlayer; //  This Event destroys the object ( whatever ) 
  
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            index++;
+            for (int i = 0; i <= spawnIndex; i++)
+            {
+                if(i == spawnIndex)
+                {
+                    index = i;
+                }
+            }
+            
             Debug.Log(index);
         }
     }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 299764801898306418}
   - component: {fileID: 2724232206355012643}
   - component: {fileID: 5963020379509009808}
-  - component: {fileID: 4846521400112629958}
+  - component: {fileID: -8002837972741654773}
   - component: {fileID: 5162355085030988752}
   m_Layer: 0
   m_Name: Player
@@ -142,8 +142,8 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4846521400112629958}
-        m_TargetAssemblyTypeName: Movement, Assembly-CSharp
+      - m_Target: {fileID: -8002837972741654773}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: OnMovement
         m_Mode: 0
         m_Arguments:
@@ -156,12 +156,20 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: cee92dec-16fb-40b4-99b5-bca83261a089
     m_ActionName: Movement/WASD[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 64f6b18c-8b14-43a4-8744-238092301aa9
+    m_ActionName: Player Controller/Evidences[/Keyboard/b]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6a163b75-56da-4971-bb5d-d08cbf713c27
+    m_ActionName: Player Controller/Investigation[/Keyboard/v]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Movement
+  m_DefaultActionMap: Player Controller
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &4846521400112629958
+--- !u!114 &-8002837972741654773
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -170,11 +178,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8091765313239881872}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 526af009303bec6419622e45a4f9e35d, type: 3}
+  m_Script: {fileID: 11500000, guid: ecf91dc4a54923743a7f25a5c1ab335c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  DocumentarygO: {fileID: 0}
+  InvestigationgO: {fileID: 0}
   WalkLeftSprite: {fileID: 0}
   WalkRightSprite: {fileID: 0}
   WalkDownSprite: {fileID: 0}

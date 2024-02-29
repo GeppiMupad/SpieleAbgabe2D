@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class MainSpawn : MonoBehaviour
 {
+    public delegate void PlayerCam();
+    public static event PlayerCam CameraEvent;
+
     [SerializeField] private GameObject PlayerObject;
     public static GameObject playerToFollowObject;
     public static bool firstSpawn = true;
@@ -17,6 +20,8 @@ public class MainSpawn : MonoBehaviour
             playerToFollowObject = Instantiate(PlayerObject,transform.position, Quaternion.identity);
             
         }
+        CameraEvent?.Invoke();
+
     }
 
  

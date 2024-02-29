@@ -1665,7 +1665,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6092054999539715848}
-  - component: {fileID: 8038926856896994024}
   m_Layer: 0
   m_Name: Ermittlungsakte (1)
   m_TagString: Test
@@ -1689,19 +1688,6 @@ Transform:
   - {fileID: 2166205227714447134}
   m_Father: {fileID: 1277213508266275940}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8038926856896994024
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7608318620299327488}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc1cbd39e0623fe4fbff469104e6b36a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InvestigationgO: {fileID: 7608318620299327488}
 --- !u!1 &7974155181237169265
 GameObject:
   m_ObjectHideFlags: 0
